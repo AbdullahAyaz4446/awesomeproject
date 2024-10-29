@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';import { create } from 'react-test-renderer';
+import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     mainContainer: {
         flex: 1,
@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
 
     },
     title: {
-        fontSize: 30,
+        fontSize: 35,
         fontWeight: 'bold',
         marginBottom: 20,
 
@@ -16,13 +16,13 @@ const styles = StyleSheet.create({
     input: {
         borderRadius: 20,
         borderColor: 'black',
-        borderWidth: 3,
+        borderWidth: 4,
         width: '90%',
         textAlign: 'right',
-        fontSize: 18,
+        fontSize: 20,
         marginBottom: 30,
         fontWeight: 'bold',
-        padding: 8
+        padding: 15
     },
     buttonContainer: {
         flexDirection: 'row',
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     },
     buttontext: {
         textAlign: 'center',
-        fontSize: 20,
+        fontSize: 25,
         fontWeight: 'bold',
         color: 'white'
     }
