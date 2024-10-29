@@ -39,10 +39,10 @@ const Calculator = () => {
                 {['1', '2', '3', '*'].map((val) => showButton(val, () => handlePress(val)))}
             </View>
             <View style={styles.buttonContainer}>
-                {showButton('C', () => setCount(''))}
+                {showButton('AC', () => setCount(''))}
                 {showButton('0', () => handlePress('0'))}
                 {showButton('=', calculateResult)}
-                {showButton('/', () => handlePress('/'))}
+                {showButton('%', () => handlePress('%'))}
             </View>
         </View>
     )
