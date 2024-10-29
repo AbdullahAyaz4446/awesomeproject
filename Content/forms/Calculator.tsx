@@ -28,6 +28,7 @@ const Calculator = () => {
 
             <Text style={styles.title}>Calculator</Text>
             <TextInput placeholder="0" editable={false} value={count} style={styles.input} />
+          
             <View style={styles.buttonContainer}>
                 {['7', '8', '9', '+'].map((val) => showButton(val, () => handlePress(val)))}
             </View>

@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         marginBottom: 30,
         fontWeight: 'bold',
-        padding: 15
+        padding: 10
     },
     buttonContainer: {
         flexDirection: 'row',
@@ -30,16 +30,15 @@ const styles = StyleSheet.create({
         width: '90%',
         marginBottom: 15,
         borderColor: 'black',
-        borderWidth: 3,
-        borderRadius: 30,
+       
         padding: 10
 
     },
     buttonstyle: {
-        width: 60,
-        height: 60,
-        borderRadius: 30,
-        backgroundColor: 'black',
+        width: 70,
+        height: 70,
+        borderRadius: 35,
+        backgroundColor: '#E7E9E8',
         alignItems: 'center',
         justifyContent: 'center'
 
@@ -49,7 +48,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 25,
         fontWeight: 'bold',
-        color: 'white'
+        color: 'black'
     }
 });
 

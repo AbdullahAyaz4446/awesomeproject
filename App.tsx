@@ -1,18 +1,12 @@
-import React, { useState } from 'react';
-import {
-  Button,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import Calculator from './Content/forms/Calculator';
-import Incrementdecremnet from './Content/forms/Incrementdecremnet';
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+import Calculator from './Content/forms/Calculator'
 
-function App(): React.JSX.Element {
+const App = () => {
   return (
-<Calculator/>
-  );
+   <Calculator/>
+  )
 }
+
 export default App;
+
