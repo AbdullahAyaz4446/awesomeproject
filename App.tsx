@@ -8,6 +8,7 @@ import {
   View,
 } from 'react-native';
 import Calculator from './Content/forms/Calculator';
+import Incrementdecremnet from './Content/forms/Incrementdecremnet';
 
 function App(): React.JSX.Element {
   return (
