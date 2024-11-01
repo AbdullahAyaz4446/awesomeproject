@@ -1,13 +1,13 @@
-import { StyleSheet, Text, View, TextInput, TouchableOpacity,Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 
 const LoginForm = () => {
-    const navigation=useNavigation();
+    const navigation = useNavigation();
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
-    const [message, setMessage] = useState(""); 
+    const [message, setMessage] = useState("");
     const [color, setColor] = useState("");
 
     const data = [
@@ -22,57 +22,64 @@ const LoginForm = () => {
 
     const handleLogin = () => {
         const user = data.find(user => user.name.toLowerCase() === name.toLowerCase() && user.password === password);
-        if(!name||!password){
+        if (!name || !password) {
             setName("");
             setPassword("");
-           setColor('red')
+            setColor('red')
             setMessage("Enter username and password");
         }
         else if (user) {
             setName("");
             setPassword("");
-           setColor('green')
-          setMessage("Login Successfully");
-          navigation.navigate('SignUp');
+            setColor('green')
+            setMessage("Login Successfully");
+            navigation.navigate('SignUp');
 
         } else {
-           setColor('red')
+            setColor('red')
             setMessage("Invalid username or password");
         }
     };
+  
 
     return (
         <View style={styles.main}>
-            <Image source={require('/Users/macbookpro/awesomeproject/Content/images/laptop-2298286_1920.png')} style={styles.logo}/>
+            <Image source={require('/Users/macbookpro/awesomeproject/Content/images/laptop-2298286_1920.png')} style={styles.logo} />
 
             <Text style={styles.text}>Login 🔐</Text>
-            
+
             <View style={styles.inputContainer}>
-            <Text style={{textAlign:'left'}}>Enter Username</Text>
-                <TextInput 
-                    placeholder="Username" 
-                    value={name} 
-                    onChangeText={setName} 
-                    style={styles.input} 
+                <Text style={{ textAlign: 'left'}}>Enter Username</Text>
+                <TextInput
+                    placeholder="Username"
+                    value={name}
+                    onChangeText={setName}
+                    style={styles.input}
                 />
             </View>
-            
+
             <View style={styles.inputContainer}>
-            <Text style={{textAlign:'left'}}>Enter Password</Text>
-                <TextInput 
-                    placeholder="Password" 
-                    value={password} 
-                    onChangeText={setPassword} 
-                    secureTextEntry 
-                    style={styles.input} 
+                <Text style={{ textAlign: 'left' }}>Enter Password</Text>
+                <TextInput
+                    placeholder="Password"
+                    value={password}
+                    onChangeText={setPassword}
+                    secureTextEntry
+                    style={styles.input}
                 />
-                <Text style={{color:color, textAlign: 'right'}}>{message}</Text>
+                <Text style={{ color: color, textAlign: 'right' }}>{message}</Text>
             </View>
 
             <TouchableOpacity onPress={handleLogin} style={styles.button}>
                 <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
+            <TouchableOpacity onPress={() => {
+                navigation.navigate('SignUp');
+            }} style={styles.button}>
+                <Text style={styles.buttonText}>Sign Up</Text>
+            </TouchableOpacity>
         </View>
+
     );
 };
 
@@ -100,7 +107,7 @@ const styles = StyleSheet.create({
         borderColor: '#ddd',
         borderWidth: 1,
         borderRadius: 8,
-        paddingHorizontal:5,
+        paddingHorizontal: 5,
         backgroundColor: '#fff',
         fontSize: 16,
     },
@@ -112,16 +119,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 20,
-      
+
     },
     buttonText: {
         fontSize: 18,
         fontWeight: 'bold',
         color: 'white',
-          fontFamily:'Arial'
+        fontFamily: 'Arial'
     },
-    logo:{
-        width:200,
-        height:150
+    logo: {
+        width: 200,
+        height: 150
     }
 });

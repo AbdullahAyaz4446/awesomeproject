@@ -3,19 +3,18 @@ import React from 'react'
 
 const SignUpform = () => {
   return (
-    <View style={styles.mainconatiner}>
+    <View style={styles.main}>
       <Text>SignUpform</Text>
     </View>
   )
 }
 
-export default SignUpform;
+export default SignUpform
 
 const styles = StyleSheet.create({
-    mainconatiner:
-    {
-        flex:1,
-        justifyContent:'center',
-        alignItems:'center'
+    main:{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 })
