@@ -1,7 +1,10 @@
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity,Image } from 'react-native';
 import React, { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
+
 
 const LoginForm = () => {
+    const navigation=useNavigation();
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState(""); 
@@ -9,10 +12,12 @@ const LoginForm = () => {
 
     const data = [
         { name: 'abdullah', password: '4446' },
-        { name: 'wajahat', password: '12345' },
+        { name: 'Wajahat', password: '12345' },
         { name: 'Mughees', password: '0001' },
         { name: 'Tuheed', password: '1111' },
-        { name: 'Faiz ayaz', password: '9999' }
+        { name: 'Faiz ayaz', password: '9999' },
+
+        { name: 'ahsan', password: '991' }
     ];
 
     const handleLogin = () => {
@@ -20,27 +25,32 @@ const LoginForm = () => {
         if(!name||!password){
             setName("");
             setPassword("");
-            setColor("red");
-            setMessage("enter Username and Password");
+           setColor('red')
+            setMessage("Enter username and password");
         }
         else if (user) {
             setName("");
             setPassword("");
-            setColor("green");
-            setMessage("Login Successful");
+           setColor('green')
+          setMessage("Login Successfully");
+          navigation.navigate('SignUp');
+
         } else {
-            setColor("red");
-            setMessage("Invalid name or password");
+           setColor('red')
+            setMessage("Invalid username or password");
         }
     };
 
     return (
         <View style={styles.main}>
-            <Text style={styles.text}>Login Form</Text>
+            <Image source={require('/Users/macbookpro/awesomeproject/Content/images/laptop-2298286_1920.png')} style={styles.logo}/>
+
+            <Text style={styles.text}>Login 🔐</Text>
             
             <View style={styles.inputContainer}>
+            <Text style={{textAlign:'left'}}>Enter Username</Text>
                 <TextInput 
-                    placeholder="Enter name" 
+                    placeholder="Username" 
                     value={name} 
                     onChangeText={setName} 
                     style={styles.input} 
@@ -48,14 +58,15 @@ const LoginForm = () => {
             </View>
             
             <View style={styles.inputContainer}>
+            <Text style={{textAlign:'left'}}>Enter Password</Text>
                 <TextInput 
-                    placeholder="Enter password" 
+                    placeholder="Password" 
                     value={password} 
                     onChangeText={setPassword} 
                     secureTextEntry 
                     style={styles.input} 
                 />
-                <Text style={{color: color, textAlign: 'center'}}>{message}</Text>
+                <Text style={{color:color, textAlign: 'right'}}>{message}</Text>
             </View>
 
             <TouchableOpacity onPress={handleLogin} style={styles.button}>
@@ -74,7 +85,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     text: {
-        fontSize: 20,
+        fontSize: 30,
         padding: 30,
         fontWeight: 'bold',
         textAlign: 'center',
@@ -84,25 +95,33 @@ const styles = StyleSheet.create({
         marginBottom: 15,
     },
     input: {
-        borderRadius: 20,
-        borderColor: 'black',
-        borderWidth: 2,
-        fontSize: 18,
-        padding: 10,
-        fontWeight: 'bold',
+        width: '100%',
+        height: 50,
+        borderColor: '#ddd',
+        borderWidth: 1,
+        borderRadius: 8,
+        paddingHorizontal:5,
+        backgroundColor: '#fff',
+        fontSize: 16,
     },
     button: {
         width: "90%",
-        height: 70,
-        borderRadius: 25,
-        backgroundColor: '#E7E9E8',
+        height: 60,
+        borderRadius: 8,
+        backgroundColor: '#007AFF',
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 20,
+      
     },
     buttonText: {
         fontSize: 18,
         fontWeight: 'bold',
-        color: 'black',
+        color: 'white',
+          fontFamily:'Arial'
     },
+    logo:{
+        width:200,
+        height:150
+    }
 });
