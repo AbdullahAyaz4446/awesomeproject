@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-
+import Video from 'react-native-video';
 
 const LoginForm = () => {
     const navigation = useNavigation();
@@ -16,7 +16,6 @@ const LoginForm = () => {
         { name: 'Mughees', password: '0001' },
         { name: 'Tuheed', password: '1111' },
         { name: 'Faiz ayaz', password: '9999' },
-
         { name: 'ahsan', password: '991' }
     ];
 
@@ -34,7 +33,6 @@ const LoginForm = () => {
             setColor('green')
             setMessage("Login Successfully");
             navigation.navigate('SignUp');
-
         } else {
             setColor('red')
             setMessage("Invalid username or password");
@@ -44,12 +42,16 @@ const LoginForm = () => {
 
     return (
         <View style={styles.main}>
-            <Image source={require('/Users/macbookpro/awesomeproject/Content/images/laptop-2298286_1920.png')} style={styles.logo} />
-
+            {/* <Image source={require('/Users/macbookpro/awesomeproject/Content/images/undraw_Login_re_4vu2-2-removebg-preview.png')} style={styles.logo} /> */}
+            <Video  source={require('/Users/macbookpro/awesomeproject/Content/images/video.mp4')} 
+            style={styles.logo}
+            resizeMode='center'
+            repeat
+            />
             <Text style={styles.text}>Login 🔐</Text>
 
             <View style={styles.inputContainer}>
-                <Text style={{ textAlign: 'left'}}>Enter Username</Text>
+                <Text style={{ textAlign: 'left',fontWeight:'bold'}}>Enter Username</Text>
                 <TextInput
                     placeholder="Username"
                     value={name}
@@ -59,7 +61,7 @@ const LoginForm = () => {
             </View>
 
             <View style={styles.inputContainer}>
-                <Text style={{ textAlign: 'left' }}>Enter Password</Text>
+                <Text style={{ textAlign: 'left' ,fontWeight:'bold'}}>Enter Password</Text>
                 <TextInput
                     placeholder="Password"
                     value={password}
@@ -87,9 +89,10 @@ export default LoginForm;
 
 const styles = StyleSheet.create({
     main: {
-        flex: 1,
+        flex:1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor:'white'
     },
     text: {
         fontSize: 30,
@@ -128,7 +131,8 @@ const styles = StyleSheet.create({
         fontFamily: 'Arial'
     },
     logo: {
-        width: 200,
-        height: 150
+        width: 300,
+        height: 250,
+        objectFit:'contain',
     }
 });

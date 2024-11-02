@@ -31,9 +31,10 @@ const Calculator = () => {
           
             <View style={styles.buttonContainer}>
                 {['7', '8', '9', '+'].map((val) => showButton(val, () => handlePress(val)))}
+            
             </View>
             <View style={styles.buttonContainer}>
-                {['4', '5', '6', '-'].map((val) => showButton(val, () => handlePress(val)))}
+                {['4', '5', '6', '-'].map((val) => (showButton(val, () => handlePress(val))))}
             </View>
             <View style={styles.buttonContainer}>
                 {['1', '2', '3', '*'].map((val) => showButton(val, () => handlePress(val)))}
