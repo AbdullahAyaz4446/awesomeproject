@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'reac
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Video from 'react-native-video';
+import LottieView from 'lottie-react-native';
 
 const LoginForm = () => {
     const navigation = useNavigation();
@@ -43,11 +44,12 @@ const LoginForm = () => {
     return (
         <View style={styles.main}>
             {/* <Image source={require('/Users/macbookpro/awesomeproject/Content/images/undraw_Login_re_4vu2-2-removebg-preview.png')} style={styles.logo} /> */}
-            <Video  source={require('/Users/macbookpro/awesomeproject/Content/images/video.mp4')} 
+            {/* <Video  source={require('/Users/macbookpro/awesomeproject/src/images/video.mp4')} 
             style={styles.logo}
             resizeMode='center'
             repeat
-            />
+            /> */}
+            <LottieView source={require('../animation/Animation - 1730560043027.json')} autoPlay loop style={styles.logo} />
             <Text style={styles.text}>Login 🔐</Text>
 
             <View style={styles.inputContainer}>
@@ -131,8 +133,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Arial'
     },
     logo: {
-        width: 300,
-        height: 250,
-        objectFit:'contain',
+        width: 400,
+        height: 350,
     }
 });
