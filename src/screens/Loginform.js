@@ -1,22 +1,22 @@
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import Video from 'react-native-video';
 import LottieView from 'lottie-react-native';
+import SignUpform from './SignUpform';
 
 const LoginForm = () => {
-    const navigation = useNavigation();
+    
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
     const [color, setColor] = useState("");
-
+   
     const data = [
         { name: 'abdullah', password: '4446' },
         { name: 'Wajahat', password: '12345' },
         { name: 'Mughees', password: '0001' },
         { name: 'Tuheed', password: '1111' },
-        { name: 'Faiz ayaz', password: '9999' },
+        { name: 'Faiz', password: '9999' },
         { name: 'ahsan', password: '991' }
     ];
 
@@ -31,29 +31,26 @@ const LoginForm = () => {
         else if (user) {
             setName("");
             setPassword("");
+            setMessage("");
             setColor('green')
-            setMessage("Login Successfully");
-            navigation.navigate('SignUp');
+            setMessage("LogIn Successfully");
+      
         } else {
             setColor('red')
             setMessage("Invalid username or password");
         }
     };
-  
+
 
     return (
         <View style={styles.main}>
             {/* <Image source={require('/Users/macbookpro/awesomeproject/Content/images/undraw_Login_re_4vu2-2-removebg-preview.png')} style={styles.logo} /> */}
-            {/* <Video  source={require('/Users/macbookpro/awesomeproject/src/images/video.mp4')} 
-            style={styles.logo}
-            resizeMode='center'
-            repeat
-            /> */}
-            <LottieView source={require('../animation/Animation - 1730560043027.json')} autoPlay loop style={styles.logo} />
-            <Text style={styles.text}>Login 🔐</Text>
+
+            {/* <LottieView source={require('../animation/Animation - 1730560043027.json')} autoPlay loop style={styles.logo} /> */}
+            <Text style={styles.text}>Login 🔓</Text>
 
             <View style={styles.inputContainer}>
-                <Text style={{ textAlign: 'left',fontWeight:'bold'}}>Enter Username</Text>
+                <Text style={{ textAlign: 'left', fontWeight: 'bold' }}>Enter Username</Text>
                 <TextInput
                     placeholder="Username"
                     value={name}
@@ -63,7 +60,7 @@ const LoginForm = () => {
             </View>
 
             <View style={styles.inputContainer}>
-                <Text style={{ textAlign: 'left' ,fontWeight:'bold'}}>Enter Password</Text>
+                <Text style={{ textAlign: 'left', fontWeight: 'bold' }}>Enter Password</Text>
                 <TextInput
                     placeholder="Password"
                     value={password}
@@ -77,11 +74,11 @@ const LoginForm = () => {
             <TouchableOpacity onPress={handleLogin} style={styles.button}>
                 <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => {
-                navigation.navigate('SignUp');
-            }} style={styles.button}>
+            <TouchableOpacity  style={styles.button}>
                 <Text style={styles.buttonText}>Sign Up</Text>
             </TouchableOpacity>
+        
+          
         </View>
 
     );
@@ -90,50 +87,57 @@ const LoginForm = () => {
 export default LoginForm;
 
 const styles = StyleSheet.create({
-    main: {
-        flex:1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor:'white'
-    },
-    text: {
-        fontSize: 30,
-        padding: 30,
-        fontWeight: 'bold',
-        textAlign: 'center',
-    },
-    inputContainer: {
-        width: "90%",
-        marginBottom: 15,
-    },
-    input: {
-        width: '100%',
-        height: 50,
-        borderColor: '#ddd',
-        borderWidth: 1,
-        borderRadius: 8,
-        paddingHorizontal: 5,
-        backgroundColor: '#fff',
-        fontSize: 16,
-    },
-    button: {
-        width: "90%",
-        height: 60,
-        borderRadius: 8,
-        backgroundColor: '#007AFF',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: 20,
+     main: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white',
+    paddingTop:20,
+    paddingHorizontal:20
 
-    },
-    buttonText: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        color: 'white',
-        fontFamily: 'Arial'
-    },
-    logo: {
-        width: 400,
-        height: 350,
-    }
+  
+  },
+  text: {
+    fontSize: 30,
+marginVertical:10,
+    fontWeight: 'bold',
+   
+  },
+  inputContainer: {
+    width: "100%",
+    marginBottom: 15,
+ 
+  },
+  input: {
+    width: '100%',
+    height: 50,
+    borderColor: '#ddd',
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingHorizontal: 5,
+    backgroundColor: '#fff',
+    fontSize: 16,
+  },
+  button: {
+    width: "100%",
+    height: 60,
+    borderRadius: 8,
+    backgroundColor: '#007AFF',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 10,
+
+
+  },
+  buttonText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: 'white',
+    fontFamily: 'Arial'
+  },
+  logo: {
+    width: 300,
+    height: 350,
+  },
+
 });
